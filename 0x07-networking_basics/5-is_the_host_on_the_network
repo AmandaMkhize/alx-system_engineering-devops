@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # A Bash script that pings an IP address passed as an argument. Requirements:
 # - Accepts a string as an argument
-# - Displays usage message if no argument is provided
+# - Displays a usage message if no argument is provided
 # - Pings the IP address five times
 
 if [ "$#" -eq 0 ]; then
@@ -9,3 +9,4 @@ if [ "$#" -eq 0 ]; then
 else
     ping -c 5 "$1"
 fi
+
