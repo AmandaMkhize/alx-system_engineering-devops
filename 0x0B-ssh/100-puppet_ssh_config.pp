@@ -1,22 +1,16 @@
-# Puppet manifest to configure SSH client settings
+# Seting up client SSH config file
+include stdlib
 
-# Define the SSH client configuration file path
-$file_path = "/home/ubuntu/.ssh/config"
-
-# Ensure SSH client configuration file exists
-file { $file_path:
-  ensure => file,
-}
-
-# Configure SSH client settings
 file_line { 'Turn off passwd auth':
   ensure => present,
-  path   => $file_path,
+  path   => '/etc/ssh/ssh_config',
   line   => '    PasswordAuthentication no',
+  replace => true,
 }
 
-file_line { 'Declare identity file':
+file_line { 'Delare identity file':
   ensure => present,
-  path   => $file_path,
-  line   => '    IdentityFile ~/.ssh/school',
+  path   => '/etc/ssh/ssh_config',
+  line   => '     IdentityFile ~/.ssh/school',
+  replace => true,
 }
